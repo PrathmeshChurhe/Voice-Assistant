@@ -1,16 +1,13 @@
 import speech_recognition as sr
 import pyttsx3
 
-# Initialize the speech recognizer and text-to-speech engine
 r = sr.Recognizer()
 engine = pyttsx3.init()
 
-# Define a function to speak a given text
 def speak(text):
     engine.say(text)
     engine.runAndWait()
 
-# Define a function to recognize speech
 def listen():
     with sr.Microphone() as source:
         print("Listening...")
@@ -24,7 +21,6 @@ def listen():
     except sr.RequestError:
         print("Sorry, my speech service is down.")
 
-# Define a function to handle user commands
 def handle_command(command):
     if "hello" in command:
         speak("Hello! How can I assist you today?")
@@ -36,7 +32,6 @@ def handle_command(command):
     else:
         speak("Sorry, I didn't understand that command.")
 
-# Main program loop
 while True:
     command = listen().lower()
     handle_command(command)
